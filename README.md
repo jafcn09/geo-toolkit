@@ -9,6 +9,7 @@ Libreria TypeScript ligera para mapas geoespaciales. Gestion de capas WMS, GetFe
 ## Installation / Instalacion
 
 ```bash
+npm install @coderesolutions/geo-toolkit
 npm install -D @types/leaflet
 ```
 
@@ -29,7 +30,7 @@ npm install -D @types/leaflet
 ### WMS Layer Management / Gestion de Capas WMS
 
 ```typescript
-import { WmsManager, GeoLayer } from '@anthropic-geo/toolkit';
+import { WmsManager, GeoLayer } from '@coderesolutions/geo-toolkit';
 
 const map = L.map('map').setView([-3.55, -80.44], 10);
 const wms = new WmsManager(map, 'overlayPane', {
@@ -57,7 +58,7 @@ wms.remove('limites');
 ### GetFeatureInfo (Click on Features) / Consulta de Atributos
 
 ```typescript
-import { FeatureInfo } from '@anthropic-geo/toolkit';
+import { FeatureInfo } from '@coderesolutions/geo-toolkit';
 
 const fi = new FeatureInfo(map, {
   proxyUrl: '/api/geoserver/featureinfo',
@@ -80,7 +81,7 @@ const result = await fi.queryAll(e.latlng, wms.getVisibleLayers());
 ### GeoJSON Loader / Carga de GeoJSON
 
 ```typescript
-import { GeoJsonLoader } from '@anthropic-geo/toolkit';
+import { GeoJsonLoader } from '@coderesolutions/geo-toolkit';
 
 const loader = new GeoJsonLoader(map, {
   paneName: 'overlayPane',
@@ -98,7 +99,7 @@ loader.remove('layer-id');
 ### Popup Builder / Constructor de Popups
 
 ```typescript
-import { PopupBuilder, POPUP_THEME_DARK } from '@anthropic-geo/toolkit';
+import { PopupBuilder, POPUP_THEME_DARK } from '@coderesolutions/geo-toolkit';
 
 const popup = new PopupBuilder(POPUP_THEME_DARK);
 
@@ -113,7 +114,7 @@ map.on('click', async (e) => {
 ### Peruvian National Services / Servicios Nacionales Peruanos
 
 ```typescript
-import { createNationalLayers } from '@anthropic-geo/toolkit';
+import { createNationalLayers } from '@coderesolutions/geo-toolkit';
 
 // Get all layers filtered to Tumbes department
 const groups = createNationalLayers('TUMBES');
@@ -152,7 +153,7 @@ PUNO, SAN_MARTIN, TACNA, TUMBES, UCAYALI
 ### Ubigeo Utilities / Utilidades de Ubigeo
 
 ```typescript
-import { getDepartmentName, getDepartmentCode, parseUbigeo } from '@anthropic-geo/toolkit';
+import { getDepartmentName, getDepartmentCode, parseUbigeo } from '@coderesolutions/geo-toolkit';
 
 getDepartmentName('24');           // 'TUMBES'
 getDepartmentCode('TUMBES');       // '24'
@@ -163,7 +164,7 @@ parseUbigeo('240101');
 ### Geocoding / Geocodificacion
 
 ```typescript
-import { geocode, reverseGeocode } from '@anthropic-geo/toolkit';
+import { geocode, reverseGeocode } from '@coderesolutions/geo-toolkit';
 
 const results = await geocode('Punta Sal, Tumbes', { limit: 3 });
 // [{ name: 'Punta Sal', lat: -3.979, lng: -80.974, ... }]
@@ -175,7 +176,7 @@ const place = await reverseGeocode(-3.5559, -80.4426);
 ### Distance Calculation / Calculo de Distancias
 
 ```typescript
-import { haversineDistance, formatDistance } from '@anthropic-geo/toolkit';
+import { haversineDistance, formatDistance } from '@coderesolutions/geo-toolkit';
 
 const km = haversineDistance(-3.5559, -80.4426, -3.6727, -80.6536);
 formatDistance(km); // '25 km'
@@ -184,7 +185,7 @@ formatDistance(km); // '25 km'
 ### Map Themes / Temas de Mapa
 
 ```typescript
-import { MapTheme } from '@anthropic-geo/toolkit';
+import { MapTheme } from '@coderesolutions/geo-toolkit';
 
 const theme = new MapTheme(map, 'basePane', 'labelsPane');
 theme.setMode('dark');
@@ -195,7 +196,7 @@ theme.isDark();        // true/false
 ### Map Export / Exportacion de Mapa
 
 ```typescript
-import { captureMapElement, downloadCanvas } from '@anthropic-geo/toolkit';
+import { captureMapElement, downloadCanvas } from '@coderesolutions/geo-toolkit';
 
 const canvas = await captureMapElement(document.getElementById('map')!, 2);
 downloadCanvas(canvas, 'map-tumbes', { format: 'png' });
@@ -204,7 +205,7 @@ downloadCanvas(canvas, 'map-tumbes', { format: 'png' });
 ### Tile Providers / Proveedores de Tiles
 
 ```typescript
-import { getTileProvider, getAllTileProviders, TILE_PROVIDERS } from '@anthropic-geo/toolkit';
+import { getTileProvider, getAllTileProviders, TILE_PROVIDERS } from '@coderesolutions/geo-toolkit';
 
 const cartodb = getTileProvider('cartodb-positron');
 // { id: 'cartodb-positron', url: 'https://...', attribution: '...' }
