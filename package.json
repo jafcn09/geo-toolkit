@@ -1,6 +1,6 @@
 {
-  "name": "@anthropic-geo/toolkit",
-  "version": "1.0.0",
+  "name": "@coderesolutions/geo-toolkit",
+  "version": "1.0.1",
   "description": "Angular library for geospatial maps and data. Leaflet WMS, GeoJSON, GetFeatureInfo, Peruvian national services.",
   "author": "Jhafet Canepa",
   "license": "SEE LICENSE IN LICENSE",
