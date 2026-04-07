@@ -9,7 +9,6 @@ Libreria TypeScript ligera para mapas geoespaciales. Gestion de capas WMS, GetFe
 ## Installation / Instalacion
 
 ```bash
-npm install @anthropic-geo/toolkit leaflet
 npm install -D @types/leaflet
 ```
 
